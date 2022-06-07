@@ -2,9 +2,12 @@ import { MongoClient } from "mongodb" //aosidfnpiuoasdngpiuerbiuaernbgiopaerbng
 //const { MongoClient} = require("mongodb");
 const URL = process.env.MONGO_URL ?? "mongodb://localhost:27017"
 const DB_NAME = "hack301"
-const COLLECTION_BOOKS = "Rooms"
+const COLLECTION_ROOMS = "Rooms"
+const COLLECTION_USERS = "Users"
+const COLLECTION_ADMIN = "Admin"
 
 let client;
+
 export async function connectToMongo() {
     try {
         if (!client) { client = await MongoClient.connect(URL) }
@@ -21,7 +24,7 @@ export async function getMongoCollection(dbName, collectionName) {
 
 
 async function populate() {
-    const collection = await getMongoCollection(DB_NAME, COLLECTION_BOOKS)
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_ROOMS)
     await collection.insertMany([
         {
             "roomName": "1",
@@ -75,6 +78,22 @@ async function populate() {
         }
 
     ])
+    ////???????????????????????
+    // const collectionUser = await getMongoCollection(DB_NAME, COLLECTION_USERS)
+    // await collectionUser.insertOne({
+    //     "Username": "Xavier",
+    //     "Company": "XavierCo",
+    //     "Email": "xavier@gmail.com",
+    //     "Phone": 987654321
+
+    // })
+    const collectionAdmin = await getMongoCollection(DB_NAME, COLLECTION_ADMIN)
+    await collectionAdmin.insertOne({
+        "Username": "Filipa",
+        "Password": "123qwe",
+        "Email": "filipa@gmail.com",
+        "Phone": 123123456456,
+    })
 }
 
 
