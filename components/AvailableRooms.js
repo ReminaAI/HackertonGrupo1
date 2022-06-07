@@ -1,12 +1,16 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import RequestForm from "./RequestForm"
 const GENERIC_BOOKEE = {
     Email: "",
     Username: "",
     Phone: "",
     Company: "",
-    Room: ""
+    Room: "",
+    Date: "",
+    Hour: ""
 }
+import styles from "../styles/rooms.module.css"
 
 export default function AvailableRooms() {
     const [bookee, setBookee] = useState(GENERIC_BOOKEE)
@@ -14,7 +18,6 @@ export default function AvailableRooms() {
     const [send, setSend] = useState(false)
     useEffect(() => {
         async function CallBack() {
-            console.log('CallRooms')
             const res = await fetch(
                 '/api/rooms/', {
                 headers: {
@@ -24,7 +27,6 @@ export default function AvailableRooms() {
             })
             const json = await res.json()
             setRooms(json)
-            console.log(rooms)
 
 
         }
@@ -34,7 +36,6 @@ export default function AvailableRooms() {
 
     const BookRoom = () => {
         async function CallBack() {
-            console.log('CallRooms')
             const res = await fetch(
                 '/api/rooms/', {
                 headers: {
@@ -46,21 +47,16 @@ export default function AvailableRooms() {
         }
         CallBack()
         setSend(true)
+        //setBookee(GENERIC_BOOKEE)
     }
     return (
         <div>
-            {rooms.map(e => <div key={e._id}>{e.roomName}</div>)}
-            <form onSubmit={(e) => {
-                e.preventDefault(),
-                    BookRoom()
-            }}>
-                <input required onChange={(e) => setBookee({ ...bookee, Username: e.target.value })} value={bookee.Username} placeholder="Insert Name" type="text" />
-                <input required onChange={(e) => setBookee({ ...bookee, Email: e.target.value })} value={bookee.Email} placeholder="Insert Email" type="email" />
-                <input required onChange={(e) => setBookee({ ...bookee, Company: e.target.value })} value={bookee.Company} placeholder="Insert Company" type="text" />
-                <input required onChange={(e) => setBookee({ ...bookee, Phone: e.target.value })} value={bookee.Phone} placeholder="Insert Phone Number" type="number" />
-                <input required onChange={(e) => setBookee({ ...bookee, Room: e.target.value })} placeholder="Insert Room" type="text" />
-                <input value="Book Room" type="submit" />
-            </form>
+            <RequestForm bookee={bookee} setBookee={setBookee} BookRoom={BookRoom} />
+            <div>
+                {rooms.map((e, i) => {
+                    <div className={`${styles.room}`} key={e._id}>asdadwd</div>
+                })}
+            </div>
             This IS where the rooms ARE
         </div>
     )

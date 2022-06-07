@@ -5,6 +5,7 @@ const DB_NAME = "hack301"
 const COLLECTION_ROOMS = "Rooms"
 const COLLECTION_USERS = "Users"
 const COLLECTION_ADMIN = "Admin"
+const COLLECTION_REQUESTS = "Requests"
 
 let client;
 

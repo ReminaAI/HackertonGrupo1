@@ -12,5 +12,5 @@ export default async function handler(req, res) {
     await createUser(req.body)
     return res.status(200).json()
   }
-  res.status(200).json({ name: 'John Doe' })
+  res.status(400).json()
 }

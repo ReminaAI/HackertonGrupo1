@@ -1,8 +1,9 @@
-import { createUserDB, updateRoomByID } from "../data/getElementsByID";
+import { createUserDB, getRoomById, requestARoom, updateRoomByID } from "../data/getElementsByID";
 
 export async function createUser(body) {
+    let user = await createUserDB(body)
+    let room = await getRoomById(body.Room)
     return (
-        await createUserDB(body),
-        await updateRoomByID(body.Room)
+        await requestARoom(body, user.insertedId, room._id)
     )
 }
