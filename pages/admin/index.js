@@ -22,6 +22,10 @@ export default function Admin({ loggedIn, setLoggedIn }) {
         CallBack()
     }, [])
     console.log(requests)
+    function removeFromList(id) {
+        setRequests(requests.filter(e => e._id !== id))
+    }
+
     return (
         <div className={styles.container}>
 
@@ -68,8 +72,8 @@ export default function Admin({ loggedIn, setLoggedIn }) {
                                     <h3>-START HOUR</h3>
                                     <p>{e.Hour}</p>
                                     <div className={styles.buttons}>
-                                        <button>Check</button>
-                                        <button>Decline</button>
+                                        <button onClick={() => removeFromList(e._id)}>Check</button>
+                                        <button onClick={() => removeFromList(e._id)}  >Decline</button>
                                     </div>
                                 </div>
                             })
