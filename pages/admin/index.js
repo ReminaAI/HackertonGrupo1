@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "../../styles/admin.module.css"
+import stylesDefault from "../../styles/defaultPage.module.css"
+
 export default function Admin({ loggedIn, setLoggedIn }) {
     const [requests, setRequests] = useState([])
     const [request, setRequest] = useState({})
@@ -19,30 +21,30 @@ export default function Admin({ loggedIn, setLoggedIn }) {
         }
         CallBack()
     }, [])
-
-
     console.log(requests)
     return (
         <div className={styles.container}>
 
             {!loggedIn &&
                 <div className={styles.backgroundRectangle}>
-                    <div className={styles.adminLogin}>
-                        <h1>Admin Login</h1>
-                        <form onSubmit={(e) => {
-                            e.preventDefault(),
-                                setLoggedIn(true)
-                        }}>
-                            <input placeholder="Email" type="email" />
-                            <input placeholder="Password" type="password" />
-                            <div className={styles.buttonSize}>
-                                <input className={styles.button} value="Log In" type="submit" />
-                            </div>
-                        </form>
+                    <div className={styles.text} >
+                        <h1>WELCOME<br></br>FILIPA</h1>
+                        <div className={styles.adminLogin}>
+                            <form onSubmit={(e) => {
+                                e.preventDefault(),
+                                    setLoggedIn(true)
+                            }}>
+                                <input placeholder="Email" type="email" />
+                                <input placeholder="Password" type="password" />
+                                <input className={styles.buttonLog} value="Log In" type="submit" />
+                            </form >
+                        </div>
                     </div>
+                    <div className={stylesDefault.image}><img className={stylesDefault.image} src='adminImage.jpeg' /></div>
+
                 </div>}
             {loggedIn &&
-                <div className={styles.backgroundRectangle}>
+                <div className={styles.backgroundRectangle2}>
                     <div className={styles.reservations}>
                         <h1>RESERVATIONS</h1>
                     </div>

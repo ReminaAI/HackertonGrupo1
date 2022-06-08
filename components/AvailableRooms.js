@@ -27,7 +27,7 @@ export default function AvailableRooms() {
         message: "Booking requested, please wait for admin approval.",
     })
 
-    const [clicked, setClicked] = useState(true)
+    const [clicked, setClicked] = useState(false)
 
 
     function changeStates() {
@@ -51,16 +51,19 @@ export default function AvailableRooms() {
         CallBack()
     }, [send])
 
-    useEffect(() => {
-        setTimeout(changeStates(), 2000)
-    }, [clicked])
+    // useEffect(() => {
+    //     setTimeout(changeStates(), 2000)
+    // }, [clicked])
 
 
 
     function BookRoom(id) {
         setPos({ ...pos, clicked: false })
         setClicked(true)
-        setTimeout(console.log("fdsiuhiufds"), 100000)
+        setTimeout(() => {
+            setClicked(false)
+        }, 1000);
+        // setTimeout(setClicked(false), 100000)
         async function CallBack(id) {
             const res = await fetch(
                 '/api/rooms/', {
