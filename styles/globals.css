@@ -14,3 +14,57 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.room1 {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+}
+
+.room2 {
+  width: 150px;
+  height: 150px;
+  background-color: antiquewhite;
+}
+
+.room3 {
+  width: 150px;
+  height: 150px;
+  background-color: plum;
+}
+
+.room4 {
+  width: 150px;
+  height: 150px;
+  background-color: skyblue;
+}
+
+.room5 {
+  width: 150px;
+  height: 150px;
+  background-color: saddlebrown;
+}
+
+.room6 {
+  width: 150px;
+  height: 150px;
+  background-color: peru;
+}
+
+.room7 {
+  width: 150px;
+  height: 150px;
+  background-color: palegreen;
+}
+
+.room8 {
+  width: 150px;
+  height: 150px;
+  background-color: rosybrown;
+}
+
+.auditorium {
+  width: 200px;
+  height: 400px;
+  background-color: royalblue;
+}

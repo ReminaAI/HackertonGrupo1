@@ -2,8 +2,9 @@ import { createUserDB, getRoomById, requestARoom, updateRoomByID } from "../data
 
 export async function createUser(body) {
     let user = await createUserDB(body)
-    let room = await getRoomById(body.Room)
+    let room = await getRoomById(body.room)
+    console.log(body)
     return (
-        await requestARoom(body, user.insertedId, room._id)
+        await requestARoom(body, user, room)
     )
 }

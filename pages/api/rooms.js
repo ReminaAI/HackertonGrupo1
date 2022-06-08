@@ -9,6 +9,8 @@ export default async function handler(req, res) {
     return res.status(200).json(rooms)
   }
   if (req.method === "POST") {
+    console.log("THIS IS THE REQ BODY " + req.body.room)
+    console.log("BODY:", req.body)
     await createUser(req.body)
     return res.status(200).json()
   }

@@ -8,8 +8,12 @@ const COLLECTION_ADMIN = "Admin"
 const COLLECTION_REQUESTS = "Requests"
 
 export async function getRoomById(id) {
-    console.log("thisi is an ID:" + id)
     const collection = await getMongoCollection(DB_NAME, COLLECTION_ROOMS)
+    if (!ObjectId.isValid(id)) return null
+    return await collection.findOne({ _id: ObjectId(id) })
+}
+export async function getUserById(id) {
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_USERS)
     if (!ObjectId.isValid(id)) return null
     return await collection.findOne({ _id: ObjectId(id) })
 }
@@ -36,13 +40,13 @@ export async function updateRoomByID(id, userId) {
 export async function requestARoom(body, userId, roomId) {
     const collection = await getMongoCollection(DB_NAME, COLLECTION_REQUESTS)
     return await collection.insertOne({
-        roomId: roomId,
-        userId: userId,
+        room: roomId,
+        user: userId,
         Date: body.Date,
         Hour: body.Hour
     })
 }
 export async function getAllRequests() {
-    const collection = await getMongoCollection(DB_NAME, COLLECTION_REQUESTS)
+    const collection = await getMongoCollection(DB_NAME, COLLECTION_USERS)
     return await collection.find().toArray()
 }

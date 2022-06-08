@@ -1,5 +1,50 @@
-.room {
-    background-color: rebeccapurple;
+.topdown {
+    width: 800px;
+    display: flex;
+}
+
+.roomsTop {
+    display: flex;
+    width: 600px;
+}
+
+.roomsBottom {
+    display: flex;
+    width: 600px;
+}
+
+.topdownRooms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.allrooms {
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    position: absolute;
     width: 300px;
     height: 300px;
+    border: 2px black solid;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.screen {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
 }

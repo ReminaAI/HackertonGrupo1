@@ -1,0 +1,11 @@
+.formMenu form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formMenu form * {
+    margin-bottom: 10px;
+    width: 260px;
+    text-align: center;
+}
