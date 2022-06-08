@@ -1,0 +1,40 @@
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 30px;
+    z-index: 20;
+
+}
+
+.menu {
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+    border-right: 3px black solid;
+    margin-right: 55px;
+}
+
+.menu div {
+    border-left: 3px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu div h1 {
+    text-align: center;
+    padding-left: 20px;
+}
+
+.image {
+    height: 60px;
+}
+
+.image img {
+    height: 110px;
+}

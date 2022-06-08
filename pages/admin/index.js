@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import styles from "../../styles/admin.module.css"
-export default function Admin() {
+export default function Admin({ loggedIn, setLoggedIn }) {
     const [requests, setRequests] = useState([])
     const [request, setRequest] = useState({})
-
     useEffect(() => {
         async function CallBack() {
             const res = await fetch(
@@ -23,38 +22,58 @@ export default function Admin() {
 
 
     console.log(requests)
-    return (<div className={styles.container}>
-        <div className={styles.backgroundRectangle}>
-            <div className={styles.reservations}>
-                <h1>RESERVATIONS</h1>
-            </div>
-            <div className={styles.allReservations}>
-                {
-                    requests.map((e, i) => {
-                        //getUserAndRoom(e.userId, e.roomId)
-                        return <div className={styles.request} key={i}>
-                            <h3>-ROOM NAME</h3>
-                            <p>{e.Room.roomName}</p>
-                            <h3>-USERNAME</h3>
-                            <p>{e.Username}</p>
-                            <h3>-COMPANY NAME</h3>
-                            <p>{e.Company}</p>
-                            <h3>-EMAIL</h3>
-                            <p>{e.Email}</p>
-                            <h3>-PHONE NUMBER</h3>
-                            <p>{e.Phone}</p>
-                            <h3>-DATE</h3>
-                            <p>{e.Date}</p>
-                            <h3>-START HOUR</h3>
-                            <p>{e.Hour}</p>
-                            <div className={styles.buttons}>
-                                <button>Check</button>
-                                <button>Decline</button>
+    return (
+        <div className={styles.container}>
+
+            {!loggedIn &&
+                <div className={styles.backgroundRectangle}>
+                    <div className={styles.adminLogin}>
+                        <h1>Admin Login</h1>
+                        <form onSubmit={(e) => {
+                            e.preventDefault(),
+                                setLoggedIn(true)
+                        }}>
+                            <input placeholder="Email" type="email" />
+                            <input placeholder="Password" type="password" />
+                            <div className={styles.buttonSize}>
+                                <input className={styles.button} value="Log In" type="submit" />
                             </div>
-                        </div>
-                    })
-                }
-            </div>
-        </div>
-    </div>)
+                        </form>
+                    </div>
+                </div>}
+            {loggedIn &&
+                <div className={styles.backgroundRectangle}>
+                    <div className={styles.reservations}>
+                        <h1>RESERVATIONS</h1>
+                    </div>
+                    <div className={styles.allReservations}>
+                        {
+                            requests.map((e, i) => {
+                                //getUserAndRoom(e.userId, e.roomId)
+                                return <div className={styles.request} key={i}>
+                                    <h3>-ROOM NAME</h3>
+                                    <p>{e.Room.roomName}</p>
+                                    <h3>-USERNAME</h3>
+                                    <p>{e.Username}</p>
+                                    <h3>-COMPANY NAME</h3>
+                                    <p>{e.Company}</p>
+                                    <h3>-EMAIL</h3>
+                                    <p>{e.Email}</p>
+                                    <h3>-PHONE NUMBER</h3>
+                                    <p>{e.Phone}</p>
+                                    <h3>-DATE</h3>
+                                    <p>{e.Date}</p>
+                                    <h3>-START HOUR</h3>
+                                    <p>{e.Hour}</p>
+                                    <div className={styles.buttons}>
+                                        <button>Check</button>
+                                        <button>Decline</button>
+                                    </div>
+                                </div>
+                            })
+                        }
+                    </div>
+                </div>}
+
+        </div>)
 }

@@ -18,37 +18,37 @@ a {
 .room1 {
   width: 150px;
   height: 150px;
-  background-color: red;
+
 }
 
 .room2 {
-  width: 150px;
+  width: 200px;
   height: 150px;
-  background-color: antiquewhite;
+
 }
 
 .room3 {
   width: 150px;
   height: 150px;
-  background-color: plum;
+
 }
 
 .room4 {
-  width: 150px;
+  width: 200px;
   height: 150px;
-  background-color: skyblue;
+
 }
 
 .room5 {
   width: 150px;
   height: 150px;
-  background-color: saddlebrown;
+
 }
 
 .room6 {
-  width: 150px;
+  width: 200px;
   height: 150px;
-  background-color: peru;
+
 }
 
 .room7 {
@@ -58,7 +58,7 @@ a {
 }
 
 .room8 {
-  width: 150px;
+  width: 200px;
   height: 150px;
   background-color: rosybrown;
 }
@@ -66,5 +66,26 @@ a {
 .auditorium {
   width: 200px;
   height: 400px;
-  background-color: royalblue;
+  border: 2px solid black;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.room1,
+.room2,
+.room3,
+.room4,
+.room5,
+.room6,
+.room7,
+.room8 {
+  background: none !important;
+  border: 2px black solid;
+  border-right: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
 }

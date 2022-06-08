@@ -1,16 +1,17 @@
 .topdown {
-    width: 800px;
+    width: 900px;
     display: flex;
+    border: 2px black solid;
 }
 
 .roomsTop {
     display: flex;
-    width: 600px;
+    width: 700px;
 }
 
 .roomsBottom {
     display: flex;
-    width: 600px;
+    width: 700px;
 }
 
 .topdownRooms {
@@ -20,11 +21,12 @@
 }
 
 .allrooms {
-    height: 60vh;
+    height: 400px;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
 }
 
 .menu {
@@ -38,13 +40,44 @@
 
 .container {
     position: relative;
+    display: flex;
     width: 100vw;
     height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
 }
 
 .screen {
     position: absolute;
+    top: 0px;
+    left: 0px;
     background-color: rgba(0, 0, 0, 0.2);
     width: 100vw;
     height: 100vh;
+}
+
+.backgroundRectangle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 94vw;
+    padding-bottom: 70px;
+    background-color: #e4e4e4;
+}
+
+.title {
+    margin-bottom: 60px;
+}
+
+.popup {
+    border: 2px black solid;
+    font-size: 20px;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 120px;
+    transform: translateX(-50%);
 }
